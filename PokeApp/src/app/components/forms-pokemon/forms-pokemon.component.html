@@ -1,0 +1,25 @@
+<section class="card edit-form">
+  <div class="grid">
+    <div class="g-col-4">
+      <img src="../../../assets/img/form-thumb.png" class="img-fluid rounded-start" alt="Grass initials">
+    </div>
+    <div class="g-col-8">
+      <div class="card-body">
+        <h5 class="card-title text-center mb-5">Editar favorito</h5>
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre</label>
+          <input [disabled]="true" [(ngModel)]="pokemon.name" type="text" class="form-control" id="name" placeholder="Charizard">
+        </div>
+        <div class="mb-3">
+          <label for="alias" class="form-label">Alias</label>
+          <input  [(ngModel)]="pokemon.alias" type="text" class="form-control" id="alias" placeholder="copito">
+        </div>
+        <div class="mb-3">
+          <label for="date" class="form-label">Fecha</label>
+          <input [disabled]="true" [ngModel] ="pokemon.createAt | date:'yyyy-MM-dd'"  type="date" class="form-control" id="date" placeholder="Charizard">
+        </div>
+        <button (click)="updateFavoritePokemon(pokemon)" class="btn btn-dark m-auto d-block px-4 py-2">Actualizar</button>
+      </div>
+    </div>
+  </div>
+</section>
