@@ -1,0 +1,28 @@
+<div class="bg"></div>
+<div class="contain p-5">
+  <app-list-selector class="d-block mb-5"></app-list-selector>
+  <section class="grid">
+    <app-card-pokemon
+      *ngFor="let item of pokemonList"
+      [pokemon]="item"
+      class="g-col-4"
+      (pokemonFavoriteStatusChanged)="pokemonFavoriteStatusChange($event)"
+    ></app-card-pokemon>
+  </section>
+  <footer class="d-flex justify-content-center">
+    <button
+      class="btn-pagination"
+      [disabled]="!hasPrev"
+      (click)="getPreviousPaginate()"
+    >
+      Back
+    </button>
+    <button
+      class="btn-pagination"
+      [disabled]="!hasNext"
+      (click)="getNextPaginate()"
+    >
+      Next
+    </button>
+  </footer>
+</div>

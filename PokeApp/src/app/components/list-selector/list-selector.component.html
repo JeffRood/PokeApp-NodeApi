@@ -1,0 +1,11 @@
+<section class="d-flex justify-content-between">
+  <a [routerLink]="['/']" class="selector" [ngClass]="{ selected: isMainList }"
+    >Lista General</a
+  >
+  <a
+    [routerLink]="['/favorites']"
+    class="selector"
+    [ngClass]="{ selected: isFavoriteList }"
+    >Favoritos</a
+  >
+</section>

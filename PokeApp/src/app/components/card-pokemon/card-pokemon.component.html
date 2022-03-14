@@ -1,0 +1,33 @@
+<div class="pokemon-card card shadow-sm mb-5 rounded">
+  <img [src]="pokemon.img" [alt]="pokemon.name" class="card-img-top" />
+  <div class="card-img-overlay">
+    <div *ngIf="pokemon.isFavorite" class="d-flex justify-content-end">
+      <a (click)="go(pokemon.name)" style="cursor: pointer">
+        <img src="../../../assets/icons/dots.svg" alt="Edit" />
+      </a>
+    </div>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title text-capitalize fw-bold">{{ pokemon.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted" *ngIf="pokemon.id">
+      N.° {{ parseId(pokemon.id) }}
+    </h6>
+    <h6 class="card-subtitle mb-2 text-muted" *ngIf="pokemon.alias">
+      {{ pokemon.alias }} - {{ pokemon.createAt | date: "yyyy-MM-dd" }}
+    </h6>
+    <div
+      class="card-footer border-0 bg-transparent d-flex justify-content-between align-items-center pt-3 pb-2"
+    >
+      <div>
+        <app-pokemon-type
+          class="mx-1"
+          [type]="type.type.name"
+          *ngFor="let type of pokemon.types"
+        ></app-pokemon-type>
+      </div>
+      <div (click)="toogleFavorite()">
+        <img class="like-button" [src]="heartIcon" />
+      </div>
+    </div>
+  </div>
+</div>
